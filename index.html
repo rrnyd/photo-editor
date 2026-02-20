@@ -3,948 +3,809 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Ramadhan - PAUD Asifa Sianok</title>
-    
-    <!-- Open Graph Meta Tags (untuk WhatsApp, Facebook, dll) -->
-    <meta property="og:title" content="PAUD ASIFA SIANOK | Selamat Ramadhan">
-    <meta property="og:description" content="Marhaban Ya Ramadhan. Ucapan selamat menunaikan ibadah puasa dari PAUD Asifa Sianok.">
-    <!-- Gambar dari folder yang sama dengan file HTML -->
-    <meta property="og:image" content="https://rrnyd.github.io/ucp-rrmdhn/preview.jpg">
-    <meta property="og:image:width" content="1128">
-    <meta property="og:image:height" content="629">
-    <meta property="og:url" content="https://rrnyd.github.io/ucp-rrmdhn">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card (opsional, untuk Twitter/X) -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="PAUD ASIFA SIANOK | Selamat Ramadhan">
-    <meta name="twitter:description" content="Marhaban Ya Ramadhan. Ucapan selamat menunaikan ibadah puasa dari PAUD Asifa Sianok.">
-    <!-- Gambar dari folder yang sama dengan file HTML -->
-    <meta name="twitter:image" content="https://rrnyd.github.io/ucp-rrmdhn/preview.jpg">
-    
+    <title>Social Media Photo Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
-        
-        /* Load local font Ramadhan Kareem */
-        @font-face {
-            font-family: 'Ramadhan Kareem';
-            src: url('Ramadhan Kareem.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: 'Poppins', sans-serif;
-            /* Background image ditambahkan di sini */
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            min-height: 100vh;
-            overflow: hidden;
-            position: relative;
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0f0f0f;
+            overflow-x: hidden;
         }
         
-        /* Overlay GELAP untuk memastikan teks tetap terbaca dan suasana malam */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(10, 5, 20, 0.85) 0%, rgba(20, 10, 30, 0.9) 50%, rgba(5, 5, 15, 0.95) 100%);
-            z-index: 0;
-            pointer-events: none;
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
         
-        /* Landing Page Styles */
-        .landing-page {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* Background image untuk landing page */
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5), 0 0 40px rgba(99, 102, 241, 0.3);
         }
         
-        /* Overlay GELAP untuk landing page */
-        .landing-page::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(5, 5, 15, 0.9) 0%, rgba(15, 10, 25, 0.95) 100%);
-            z-index: -1;
-        }
-        
-        .landing-page.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-        
-        .landing-content {
-            text-align: center;
-            padding: 20px;
-            animation: fadeIn 1s ease-out;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .landing-logo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: linear-gradient(145deg, #6B3E0A 0%, #8B4513 100%);
-            padding: 10px;
-            margin: 0 auto 30px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4),
-                        0 0 0 3px rgba(255, 215, 0, 0.3),
-                        0 0 30px rgba(255, 215, 0, 0.2);
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 0 3px rgba(255, 215, 0, 0.3), 0 0 30px rgba(255, 215, 0, 0.2); }
-            50% { box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 3px rgba(255, 215, 0, 0.5), 0 0 50px rgba(255, 215, 0, 0.4); }
-        }
-        
-        .landing-logo img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        
-        .landing-title {
-            font-family: 'Ramadhan Kareem', cursive;
-            font-size: 2.5rem;
-            color: #FFD700;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-        }
-        
-        .landing-subtitle {
-            color: rgba(255,255,255,0.9);
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-        
-        .open-btn {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #4A2511;
-            border: none;
-            padding: 18px 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        .crop-overlay {
+            background: rgba(0, 0, 0, 0.7);
             transition: all 0.3s ease;
+        }
+        
+        .crop-frame {
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7);
+            border: 2px solid #6366f1;
+            cursor: move;
+        }
+        
+        .handle {
+            width: 12px;
+            height: 12px;
+            background: #6366f1;
+            border: 2px solid white;
+            position: absolute;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .handle:hover {
+            transform: scale(1.3);
+            background: #818cf8;
+        }
+        
+        .handle.nw { top: -6px; left: -6px; cursor: nw-resize; }
+        .handle.ne { top: -6px; right: -6px; cursor: ne-resize; }
+        .handle.sw { bottom: -6px; left: -6px; cursor: sw-resize; }
+        .handle.se { bottom: -6px; right: -6px; cursor: se-resize; }
+        
+        .social-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            font-family: 'Poppins', sans-serif;
         }
         
-        .open-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
-        }
-        
-        .open-btn:active {
-            transform: translateY(-1px);
-        }
-        
-        .open-btn::before {
+        .social-btn::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s ease;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
         }
         
-        .open-btn:hover::before {
+        .social-btn:hover::before {
             left: 100%;
         }
         
-        .btn-icon {
-            margin-right: 8px;
+        .social-btn.active {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: #6366f1;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.5);
         }
         
-        /* Hint text */
-        .hint-text {
-            margin-top: 20px;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem;
-            font-style: italic;
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        /* Stars Animation */
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .upload-zone {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border: 2px dashed rgba(99, 102, 241, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .upload-zone:hover {
+            border-color: #6366f1;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(168, 85, 247, 0.2) 100%);
+            transform: translateY(-2px);
+        }
+        
+        .upload-zone.dragover {
+            border-color: #818cf8;
+            background: rgba(99, 102, 241, 0.3);
+            transform: scale(1.02);
+        }
+        
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
             width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            outline: none;
         }
         
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
+        .slider-thumb::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #6366f1;
+            cursor: pointer;
             border-radius: 50%;
-            animation: twinkle 3s infinite;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+            transition: transform 0.2s;
         }
         
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.5); }
-        }
-        
-        /* Moon */
-        .moon {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            border-radius: 50%;
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.5), 
-                        inset -15px -15px 30px rgba(0,0,0,0.1);
-            z-index: 2;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .moon::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: rgba(0,0,0,0.1);
-            border-radius: 50%;
-            top: 20px;
-            left: 18px;
-        }
-        
-        .moon::after {
-            content: '';
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: rgba(0,0,0,0.1);
-            border-radius: 50%;
-            top: 40px;
-            left: 40px;
+        .slider-thumb::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
         }
         
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-20px); }
         }
         
-        /* Lanterns */
-        .lanterns {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
+        .floating {
+            animation: float 6s ease-in-out infinite;
         }
         
-        .lantern {
-            position: absolute;
-            width: 40px;
-            height: 55px;
-            animation: swing 4s ease-in-out infinite;
-        }
-        
-        .lantern-body {
-            width: 100%;
-            height: 40px;
-            background: linear-gradient(180deg, #ff6b6b 0%, #ee5a24 100%);
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            position: relative;
-            box-shadow: 0 0 20px rgba(255, 107, 107, 0.4),
-                        inset 0 -5px 10px rgba(0,0,0,0.2);
-        }
-        
-        .lantern-top {
-            width: 20px;
-            height: 8px;
-            background: #2c3e50;
-            margin: 0 auto;
-            border-radius: 5px 5px 0 0;
-        }
-        
-        .lantern-bottom {
-            width: 15px;
-            height: 10px;
-            background: linear-gradient(180deg, #ee5a24 0%, #c44569 100%);
-            margin: 0 auto;
-            border-radius: 0 0 50% 50%;
-            margin-top: -3px;
-        }
-        
-        .lantern-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 25px;
-            height: 25px;
-            background: radial-gradient(circle, rgba(255,255,200,0.8) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-        
-        @keyframes swing {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(5deg); }
-        }
-        
-        @keyframes glow {
-            from { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
-            to { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
-        }
-        
-        /* Main Container */
-        .container {
-            position: relative;
-            z-index: 10;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            text-align: center;
-            opacity: 0;
-            transform: scale(0.95);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .container.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-        
-        /* Arabic Text */
-        .arabic-text {
-            font-family: 'Amiri', serif;
-            font-size: 2.5rem;
-            color: #FFD700;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            margin: 5px 0 3px 0;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.3s forwards;
-            line-height: 1.2;
-        }
-        
-        /* Ramadhan Kareem Text with custom font */
-        .ramadhan-kareem-text {
-            font-family: 'Ramadhan Kareem', cursive;
-            font-size: 2rem;
-            color: #FFD700;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            margin: 0 0 15px 0;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.4s forwards;
-            letter-spacing: 1px;
-        }
-        
-        /* Logo Container - MOVED BELOW Ramadhan Kareem */
-        .logo-container {
-            margin: 10px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.5s forwards;
-        }
-        
-        .logo-wrapper {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: linear-gradient(145deg, #6B3E0A 0%, #8B4513 100%);
-            padding: 6px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4),
-                        0 0 0 3px rgba(255, 215, 0, 0.3),
-                        0 0 20px rgba(255, 215, 0, 0.3);
-            animation: pulse 3s ease-in-out infinite;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .logo-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shine 3s linear infinite;
-        }
-        
-        @keyframes shine {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 0 3px rgba(255, 215, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.3); }
-            50% { transform: scale(1.02); box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 3px rgba(255, 215, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.5); }
-        }
-        
-        .logo-wrapper img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Main Greeting - New Apology Text - FONT LEBIH RAMPING */
-        .greeting {
-            color: #fff;
-            font-size: 0.9rem;
-            font-weight: 300; /* Lebih tipis */
-            margin: 8px 0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            background: linear-gradient(135deg, #fff 0%, #FFD700 50%, #fff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            background-size: 200% auto;
-            animation: gradient 3s linear infinite, fadeInUp 1s ease-out 0.6s forwards;
-            line-height: 1.5; /* Lebih rapat */
-            opacity: 0;
-            max-width: 450px;
-            padding: 0 15px;
-            letter-spacing: 0.3px; /* Spasi antar huruf sedikit */
-        }
-        
-        @keyframes gradient {
-            to { background-position: 200% center; }
-        }
-        
-        /* Decorative Line */
-        .decorative-line {
-            width: 120px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #FFD700, transparent);
-            margin: 10px auto;
-            opacity: 0;
-            animation: expand 1.5s ease-out 0.8s forwards;
-        }
-        
-        @keyframes expand {
-            from { width: 0; opacity: 0; }
-            to { width: 120px; opacity: 1; }
-        }
-        
-        /* Subtitle - Split into 3 lines */
-        .subtitle {
-            color: rgba(255,255,255,0.9);
-            font-size: 0.85rem;
-            max-width: 350px;
-            line-height: 1.4;
-            margin: 5px 0;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.9s forwards;
-        }
-        
-        .subtitle-line {
-            display: block;
-            margin: 1px 0;
-        }
-        
-        /* Prayer */
-        .prayer {
-            color: #FFE4B5;
-            font-style: italic;
-            font-size: 0.75rem;
-            max-width: 320px;
-            margin: 8px 0;
-            padding: 8px;
-            border-left: 2px solid #FFD700;
-            background: rgba(0,0,0,0.1);
-            border-radius: 0 8px 8px 0;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 1.0s forwards;
-            line-height: 1.3;
-        }
-        
-        /* Navigation Button */
-        .nav-btn {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #4A2511;
-            border: none;
-            padding: 12px 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
-            transition: all 0.3s ease;
-            margin-top: 15px;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 1.1s forwards;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .nav-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
-        }
-        
-        /* Page 2 Styles */
-        .page-2 {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 20;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            text-align: center;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateX(100%);
-            transition: all 0.8s ease;
-            background: inherit;
-        }
-        
-        .page-2.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(0);
-        }
-        
-        .page-2-content {
-            position: relative;
-            z-index: 10;
-        }
-        
-        .signature-large {
-            margin-top: 20px;
-            color: rgba(255,255,255,0.9);
-            font-size: 1rem;
-            line-height: 1.6;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.3s forwards;
-        }
-        
-        .signature-large strong {
-            color: #FFD700;
-            font-size: 1.5rem;
-            display: block;
-            margin-top: 10px;
-            font-family: 'Ramadhan Kareem', cursive;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-        }
-        
-        .back-btn {
-            background: transparent;
-            color: #FFD700;
-            border: 2px solid #FFD700;
-            padding: 10px 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 30px;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.6s forwards;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .back-btn:hover {
-            background: rgba(255, 215, 0, 0.1);
-            transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-        }
-        
-        /* Music Control */
-        .music-control {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 100;
-            background: rgba(0,0,0,0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: 2px solid rgba(255, 215, 0, 0.5);
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 1.2s forwards;
-        }
-        
-        .music-control:hover {
-            background: rgba(255, 215, 0, 0.2);
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-        }
-        
-        .music-icon {
-            color: #FFD700;
-            font-size: 24px;
-        }
-        
-        .music-control.playing {
-            animation: pulse-music 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse-music {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
-            50% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .landing-title { font-size: 2rem; }
-            .landing-subtitle { font-size: 1rem; }
-            .open-btn { padding: 15px 40px; font-size: 1.1rem; }
-            .landing-logo { width: 120px; height: 120px; }
-            
-            .arabic-text { font-size: 2rem; }
-            .ramadhan-kareem-text { font-size: 1.6rem; }
-            .greeting { 
-                font-size: 0.8rem; 
-                line-height: 1.4; 
-                max-width: 350px;
-                font-weight: 300;
-            }
-            .subtitle { font-size: 0.8rem; }
-            .moon { width: 60px; height: 60px; top: 10px; right: 10px; }
-            .logo-wrapper { width: 80px; height: 80px; }
-            .prayer { font-size: 0.7rem; padding: 8px; max-width: 280px; }
-            .music-control { width: 45px; height: 45px; bottom: 15px; right: 15px; }
-            .music-icon { font-size: 20px; }
-            .decorative-line { width: 100px; margin: 8px auto; }
-            .nav-btn { padding: 10px 25px; font-size: 0.9rem; }
-            .signature-large strong { font-size: 1.3rem; }
-            .back-btn { padding: 8px 20px; font-size: 0.85rem; }
-        }
-        
-        /* Particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 5;
-            overflow: hidden;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: rgba(255, 215, 0, 0.6);
-            border-radius: 50%;
-            animation: rise 10s linear infinite;
-        }
-        
-        @keyframes rise {
-            0% {
-                transform: translateY(100vh) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) scale(1);
-                opacity: 0;
-            }
+        .bg-grid {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
         }
     </style>
 </head>
-<body>
-    <!-- Landing Page -->
-    <div class="landing-page" id="landingPage">
-        <div class="landing-content">
-            <div class="landing-logo">
-                <img src="logo.jpg" alt="Logo PAUD Asifa Sianok">
-            </div>
-            <h1 class="landing-title">Ramadhan Kareem</h1>
-            <p class="landing-subtitle">PAUD Asifa Sianok mengucapkan</p>
-            <button class="open-btn" onclick="openGreeting()">
-                <span class="btn-icon">✨</span>
-                Buka Ucapan
-            </button>
-            <p class="hint-text">Klik tombol di atas untuk membuka ucapan dan memutar musik</p>
-        </div>
+<body class="text-white min-h-screen bg-grid relative">
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
     </div>
-    
-    <!-- Background Music -->
-    <audio id="bgMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
-    
-    <!-- Music Control Button -->
-    <div class="music-control" id="musicBtn" onclick="toggleMusic()">
-        <span class="music-icon" id="musicIcon">🎵</span>
-    </div>
-    
-    <!-- Stars Background -->
-    <div class="stars" id="stars"></div>
-    
-    <!-- Moon -->
-    <div class="moon"></div>
-    
-    <!-- Lanterns -->
-    <div class="lanterns">
-        <div class="lantern" style="top: 5%; left: 5%; animation-delay: 0s;">
-            <div class="lantern-top"></div>
-            <div class="lantern-body">
-                <div class="lantern-glow"></div>
-            </div>
-            <div class="lantern-bottom"></div>
-        </div>
-        <div class="lantern" style="top: 15%; right: 8%; animation-delay: 1s;">
-            <div class="lantern-top"></div>
-            <div class="lantern-body">
-                <div class="lantern-glow"></div>
-            </div>
-            <div class="lantern-bottom"></div>
-        </div>
-        <div class="lantern" style="top: 70%; left: 5%; animation-delay: 2s;">
-            <div class="lantern-top"></div>
-            <div class="lantern-body">
-                <div class="lantern-glow"></div>
-            </div>
-            <div class="lantern-bottom"></div>
-        </div>
-        <div class="lantern" style="top: 75%; right: 5%; animation-delay: 0.5s;">
-            <div class="lantern-top"></div>
-            <div class="lantern-body">
-                <div class="lantern-glow"></div>
-            </div>
-            <div class="lantern-bottom"></div>
-        </div>
-    </div>
-    
-    <!-- Particles -->
-    <div class="particles" id="particles"></div>
-    
-    <!-- Main Content Page 1 -->
-    <div class="container" id="mainContainer">
-        <div class="arabic-text">رمضان كريم</div>
-        
-        <div class="ramadhan-kareem-text">Ramadhan Kareem</div>
-        
-        <!-- Logo moved below Ramadhan Kareem -->
-        <div class="logo-container">
-            <div class="logo-wrapper">
-                <img src="logo.jpg" alt="Logo">
-            </div>
-        </div>
-        
-        <h1 class="greeting">
-            Dengan segala kerendahan hati,<br>
-            Saya mohon maaf apabila selama ini<br>
-            pernah menyakiti,<br>
-            baik disengaja maupun tidak disengaja.<br><br>
-            Semoga kita bisa memasuki bulan suci ini<br>
-            dengan hati yang bersih dan tenang.<br><br>
-            Mari kita sama-sama jalani Ramadhan<br>
-            dengan penuh ketenangan dan semangat<br>
-            untuk menjadi pribadi yang lebih baik.
-        </h1>
-        
-        <div class="decorative-line"></div>
-        
-        <p class="subtitle">
-            <span class="subtitle-line">Marhaban Ya Ramadhan</span>
-            <span class="subtitle-line">Bulan penuh berkah,</span>
-            <span class="subtitle-line">ampunan, dan keberkahan.</span>
-        </p>
-        
-        <div class="prayer">
-            "Ya Allah, terima lah puasa kami, perbanyaklah rezeki kami, 
-            dan janganlah Engkau jadikan kami termasuk orang-orang yang merugi."
-        </div>
-        
-        <!-- Navigation Button to Page 2 -->
-        <button class="nav-btn" onclick="goToPage2()">
-            Lanjutkan <span>→</span>
-        </button>
-    </div>
-    
-    <!-- Page 2 Content -->
-    <div class="page-2" id="page2">
-        <div class="page-2-content">
-            <div class="arabic-text">رمضان كريم</div>
-            <div class="ramadhan-kareem-text">Ramadhan Kareem</div>
+
+    <div class="container mx-auto px-4 py-8 relative z-10 max-w-7xl">
+        <!-- Header -->
+        <header class="text-center mb-12 floating">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
+                <span class="gradient-text">Photo</span> Editor
+            </h1>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                Crop dan edit foto Anda dengan preset ukuran optimal untuk semua platform media sosial
+            </p>
+        </header>
+
+        <!-- Main Editor Container -->
+        <div class="glass-panel rounded-3xl p-6 md:p-8 mb-8">
             
-            <div class="decorative-line" style="animation-delay: 0.2s;"></div>
-            
-            <div class="signature-large">
-                Dari kami keluarga besar<br>
-                <strong>PAUD ASIFA SIANOK</strong>
+            <!-- Upload Section -->
+            <div id="uploadSection" class="upload-zone rounded-2xl p-12 text-center cursor-pointer mb-8">
+                <input type="file" id="fileInput" accept="image/*" class="hidden">
+                <div class="space-y-4">
+                    <div class="w-20 h-20 mx-auto bg-indigo-600/20 rounded-full flex items-center justify-center">
+                        <svg class="w-10 h-10 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-xl font-semibold text-white mb-2">Drop foto di sini atau klik untuk upload</p>
+                        <p class="text-sm text-gray-400">Support JPG, PNG, WEBP (Max 10MB)</p>
+                    </div>
+                </div>
             </div>
-            
-            <button class="back-btn" onclick="goToPage1()">
-                <span>←</span> Kembali
-            </button>
+
+            <!-- Editor Interface (Hidden initially) -->
+            <div id="editorSection" class="hidden">
+                <div class="grid lg:grid-cols-3 gap-8">
+                    
+                    <!-- Left Panel: Controls -->
+                    <div class="space-y-6">
+                        <!-- Platform Presets -->
+                        <div class="bg-black/20 rounded-2xl p-6 border border-white/5">
+                            <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                </svg>
+                                Preset Platform
+                            </h3>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button onclick="setPreset('instagram-post')" class="social-btn p-3 rounded-xl border border-white/10 bg-white/5 text-left hover:bg-white/10" data-preset="instagram-post">
+                                    <div class="font-medium text-sm">Instagram Post</div>
+                                    <div class="text-xs text-gray-400 mt-1">1:1 Square</div>
+                                </button>
+                                <button onclick="setPreset('instagram-story')" class="social-btn p-3 rounded-xl border border-white/10 bg-white/5 text-left hover:bg-white/10" data-preset="instagram-story">
+                                    <div class="font-medium text-sm">Instagram Story</div>
+                                    <div class="text-xs text-gray-400 mt-1">9:16 Portrait</div>
+                                </button>
+                                <button onclick="setPreset('facebook-cover')" class="social-btn p-3 rounded-xl border border-white/10 bg-white/5 text-left hover:bg-white/10" data-preset="facebook-cover">
+                                    <div class="font-medium text-sm">Facebook Cover</div>
+                                    <div class="text-xs text-gray-400 mt-1">820x312</div>
+                                </button>
+                                <button onclick="setPreset('twitter-header')" class="social-btn p-3 rounded-xl border border-white/10 bg-white/5 text-left hover:bg-white/10" data-preset="twitter-header">
+                                    <div class="font-medium text-sm">Twitter/X Header</div>
+                                    <div class="text-xs text-gray-400 mt-1">1500x500</div>
+                                </button>
+                                <button onclick="setPreset('youtube-thumbnail')" class="social-btn p-3 rounded-xl border border-white/10 bg-white/5 text-left hover:bg-white/10" data-preset="youtube-thumbnail">
+                                    <div class="font-medium text-sm">YouTube Thumb</div>
+                                    <div class="text-xs text-gray-400 mt-1">1280x720</div>
+                                </button>
+                                <button onclick="setPreset('linkedin-banner')" class="social-btn p-3 rounded-xl border border-white/10 bg-white/5 text-left hover:bg-white/10" data-preset="linkedin-banner">
+                                    <div class="font-medium text-sm">LinkedIn Banner</div>
+                                    <div class="text-xs text-gray-400 mt-1">1584x396</div>
+                                </button>
+                                <button onclick="setPreset('tiktok')" class="social-btn p-3 rounded-xl border border-white/10 bg-white/5 text-left hover:bg-white/10" data-preset="tiktok">
+                                    <div class="font-medium text-sm">TikTok</div>
+                                    <div class="text-xs text-gray-400 mt-1">9:16 Video</div>
+                                </button>
+                                <button onclick="setPreset('pinterest')" class="social-btn p-3 rounded-xl border border-white/10 bg-white/5 text-left hover:bg-white/10" data-preset="pinterest">
+                                    <div class="font-medium text-sm">Pinterest</div>
+                                    <div class="text-xs text-gray-400 mt-1">2:3 Ratio</div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Custom Size -->
+                        <div class="bg-black/20 rounded-2xl p-6 border border-white/5">
+                            <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                                </svg>
+                                Ukuran Kustom
+                            </h3>
+                            <div class="space-y-3">
+                                <div class="flex gap-3">
+                                    <div class="flex-1">
+                                        <label class="text-xs text-gray-400 mb-1 block">Width (px)</label>
+                                        <input type="number" id="customWidth" class="w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none" placeholder="1080">
+                                    </div>
+                                    <div class="flex-1">
+                                        <label class="text-xs text-gray-400 mb-1 block">Height (px)</label>
+                                        <input type="number" id="customHeight" class="w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-sm focus:border-indigo-500 focus:outline-none" placeholder="1080">
+                                    </div>
+                                </div>
+                                <button onclick="applyCustomSize()" class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 rounded-lg text-sm font-medium transition-colors">
+                                    Terapkan Ukuran
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Adjustments -->
+                        <div class="bg-black/20 rounded-2xl p-6 border border-white/5">
+                            <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                                </svg>
+                                Penyesuaian
+                            </h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <label class="text-xs text-gray-400">Zoom</label>
+                                        <span id="zoomValue" class="text-xs text-gray-400">100%</span>
+                                    </div>
+                                    <input type="range" id="zoomSlider" min="50" max="200" value="100" class="slider-thumb">
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <label class="text-xs text-gray-400">Rotate</label>
+                                        <span id="rotateValue" class="text-xs text-gray-400">0°</span>
+                                    </div>
+                                    <input type="range" id="rotateSlider" min="-180" max="180" value="0" class="slider-thumb">
+                                </div>
+                                <div class="flex gap-2 pt-2">
+                                    <button onclick="flipHorizontal()" class="flex-1 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-medium transition-colors border border-white/10">
+                                        Flip H
+                                    </button>
+                                    <button onclick="flipVertical()" class="flex-1 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-medium transition-colors border border-white/10">
+                                        Flip V
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="flex gap-3">
+                            <button onclick="resetImage()" class="flex-1 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl font-medium transition-colors text-sm">
+                                Reset
+                            </button>
+                            <button onclick="downloadImage()" class="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-xl font-medium transition-all transform hover:scale-105 text-sm neon-glow">
+                                Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Center: Canvas Area -->
+                    <div class="lg:col-span-2">
+                        <div class="bg-black/40 rounded-2xl p-4 border border-white/5 relative overflow-hidden" style="min-height: 600px;">
+                            <div id="canvasContainer" class="relative w-full h-full flex items-center justify-center overflow-hidden">
+                                <canvas id="editorCanvas" class="max-w-full max-h-[600px] shadow-2xl"></canvas>
+                                <div id="cropOverlay" class="absolute inset-0 pointer-events-none hidden">
+                                    <div class="crop-frame absolute pointer-events-auto" id="cropFrame">
+                                        <div class="handle nw" data-handle="nw"></div>
+                                        <div class="handle ne" data-handle="ne"></div>
+                                        <div class="handle sw" data-handle="sw"></div>
+                                        <div class="handle se" data-handle="se"></div>
+                                        <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-indigo-600 px-2 py-1 rounded" id="cropDimensions"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Info Badge -->
+                            <div class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-xs text-gray-300">
+                                <span id="imageInfo">No image loaded</span>
+                            </div>
+                        </div>
+
+                        <!-- Quick Ratios -->
+                        <div class="mt-4 flex flex-wrap gap-2 justify-center">
+                            <button onclick="setRatio(1)" class="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs transition-colors">1:1</button>
+                            <button onclick="setRatio(4/3)" class="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs transition-colors">4:3</button>
+                            <button onclick="setRatio(16/9)" class="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs transition-colors">16:9</button>
+                            <button onclick="setRatio(9/16)" class="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs transition-colors">9:16</button>
+                            <button onclick="setRatio(3/2)" class="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs transition-colors">3:2</button>
+                            <button onclick="setRatio(21/9)" class="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs transition-colors">21:9</button>
+                            <button onclick="setRatio(0)" class="px-4 py-2 bg-indigo-600/20 hover:bg-indigo-600/30 border border-indigo-500/30 rounded-full text-xs transition-colors text-indigo-300">Free</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid md:grid-cols-3 gap-6 mt-12">
+            <div class="glass-panel rounded-2xl p-6 text-center">
+                <div class="w-12 h-12 bg-indigo-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-semibold mb-2">Multi Platform</h3>
+                <p class="text-sm text-gray-400">Preset optimal untuk Instagram, Facebook, Twitter, YouTube, LinkedIn, dan TikTok</p>
+            </div>
+            <div class="glass-panel rounded-2xl p-6 text-center">
+                <div class="w-12 h-12 bg-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-semibold mb-2">Edit Real-time</h3>
+                <p class="text-sm text-gray-400">Crop, zoom, rotate, dan flip dengan preview langsung di browser</p>
+            </div>
+            <div class="glass-panel rounded-2xl p-6 text-center">
+                <div class="w-12 h-12 bg-pink-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>
+                </div>
+                <h3 class="font-semibold mb-2">Export HD</h3>
+                <p class="text-sm text-gray-400">Download hasil edit dalam kualitas tinggi tanpa watermark</p>
+            </div>
         </div>
     </div>
-    
+
     <script>
-        // Generate stars
-        const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 100; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            star.style.width = Math.random() * 3 + 'px';
-            star.style.height = star.style.width;
-            starsContainer.appendChild(star);
-        }
-        
-        // Generate particles
-        const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 20; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 10 + 's';
-            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-            particlesContainer.appendChild(particle);
-        }
-        
-        // Elements
-        const landingPage = document.getElementById('landingPage');
-        const mainContainer = document.getElementById('mainContainer');
-        const page2 = document.getElementById('page2');
-        const music = document.getElementById('bgMusic');
-        const musicBtn = document.getElementById('musicBtn');
-        const musicIcon = document.getElementById('musicIcon');
-        let isPlaying = false;
-        
-        // Open Greeting Function - Triggered by user click
-        function openGreeting() {
-            // Play music
-            music.volume = 0.5;
-            music.play().then(() => {
-                isPlaying = true;
-                musicIcon.textContent = '🎵';
-                musicBtn.classList.add('playing');
-            }).catch(e => {
-                console.log('Audio play failed:', e);
-            });
-            
-            // Hide landing page
-            landingPage.classList.add('hidden');
-            
-            // Show main container with animation
-            setTimeout(() => {
-                mainContainer.classList.add('visible');
-            }, 100);
-        }
-        
-        // Navigation Functions
-        function goToPage2() {
-            mainContainer.classList.remove('visible');
-            setTimeout(() => {
-                page2.classList.add('visible');
-            }, 300);
-        }
-        
-        function goToPage1() {
-            page2.classList.remove('visible');
-            setTimeout(() => {
-                mainContainer.classList.add('visible');
-            }, 300);
-        }
-        
-        // Music Control
-        function toggleMusic() {
-            if (isPlaying) {
-                music.pause();
-                musicIcon.textContent = '🔇';
-                musicBtn.classList.remove('playing');
-            } else {
-                music.play().catch(e => console.log('Play failed:', e));
-                musicIcon.textContent = '🎵';
-                musicBtn.classList.add('playing');
+        // State Management
+        let state = {
+            image: null,
+            originalImage: null,
+            canvas: null,
+            ctx: null,
+            crop: {
+                x: 0,
+                y: 0,
+                width: 0,
+                height: 0,
+                ratio: 1,
+                isDragging: false,
+                isResizing: false,
+                resizeHandle: null,
+                startX: 0,
+                startY: 0,
+                startCrop: null
+            },
+            transform: {
+                zoom: 100,
+                rotate: 0,
+                flipH: 1,
+                flipV: 1
             }
-            isPlaying = !isPlaying;
+        };
+
+        // DOM Elements
+        const fileInput = document.getElementById('fileInput');
+        const uploadSection = document.getElementById('uploadSection');
+        const editorSection = document.getElementById('editorSection');
+        const canvas = document.getElementById('editorCanvas');
+        const ctx = canvas.getContext('2d');
+        const cropOverlay = document.getElementById('cropOverlay');
+        const cropFrame = document.getElementById('cropFrame');
+        const cropDimensions = document.getElementById('cropDimensions');
+        const imageInfo = document.getElementById('imageInfo');
+
+        // Preset Configurations
+        const presets = {
+            'instagram-post': { width: 1080, height: 1080, ratio: 1, name: 'Instagram Post' },
+            'instagram-story': { width: 1080, height: 1920, ratio: 9/16, name: 'Instagram Story' },
+            'facebook-cover': { width: 820, height: 312, ratio: 820/312, name: 'Facebook Cover' },
+            'twitter-header': { width: 1500, height: 500, ratio: 3, name: 'Twitter Header' },
+            'youtube-thumbnail': { width: 1280, height: 720, ratio: 16/9, name: 'YouTube Thumbnail' },
+            'linkedin-banner': { width: 1584, height: 396, ratio: 4, name: 'LinkedIn Banner' },
+            'tiktok': { width: 1080, height: 1920, ratio: 9/16, name: 'TikTok' },
+            'pinterest': { width: 1000, height: 1500, ratio: 2/3, name: 'Pinterest' }
+        };
+
+        // Event Listeners
+        uploadSection.addEventListener('click', () => fileInput.click());
+        uploadSection.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadSection.classList.add('dragover');
+        });
+        uploadSection.addEventListener('dragleave', () => {
+            uploadSection.classList.remove('dragover');
+        });
+        uploadSection.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadSection.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) {
+                loadImage(file);
+            }
+        });
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files[0]) {
+                loadImage(e.target.files[0]);
+            }
+        });
+
+        // Slider Events
+        document.getElementById('zoomSlider').addEventListener('input', (e) => {
+            state.transform.zoom = parseInt(e.target.value);
+            document.getElementById('zoomValue').textContent = e.target.value + '%';
+            render();
+        });
+
+        document.getElementById('rotateSlider').addEventListener('input', (e) => {
+            state.transform.rotate = parseInt(e.target.value);
+            document.getElementById('rotateValue').textContent = e.target.value + '°';
+            render();
+        });
+
+        // Crop Interaction
+        let isDragging = false;
+        let isResizing = false;
+        let currentHandle = null;
+        let startX, startY, startCrop;
+
+        cropFrame.addEventListener('mousedown', (e) => {
+            if (e.target.classList.contains('handle')) {
+                isResizing = true;
+                currentHandle = e.target.dataset.handle;
+            } else {
+                isDragging = true;
+            }
+            startX = e.clientX;
+            startY = e.clientY;
+            startCrop = { ...state.crop };
+            e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging && !isResizing) return;
+            
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+            const container = document.getElementById('canvasContainer');
+            const rect = container.getBoundingClientRect();
+            
+            if (isDragging) {
+                state.crop.x = Math.max(0, Math.min(startCrop.x + dx, rect.width - state.crop.width));
+                state.crop.y = Math.max(0, Math.min(startCrop.y + dy, rect.height - state.crop.height));
+            } else if (isResizing) {
+                const aspectRatio = state.crop.ratio;
+                
+                switch(currentHandle) {
+                    case 'se':
+                        state.crop.width = Math.max(50, startCrop.width + dx);
+                        if (aspectRatio > 0) {
+                            state.crop.height = state.crop.width / aspectRatio;
+                        } else {
+                            state.crop.height = Math.max(50, startCrop.height + dy);
+                        }
+                        break;
+                    case 'sw':
+                        state.crop.width = Math.max(50, startCrop.width - dx);
+                        state.crop.x = startCrop.x + (startCrop.width - state.crop.width);
+                        if (aspectRatio > 0) {
+                            state.crop.height = state.crop.width / aspectRatio;
+                        } else {
+                            state.crop.height = Math.max(50, startCrop.height + dy);
+                        }
+                        break;
+                    case 'ne':
+                        state.crop.width = Math.max(50, startCrop.width + dx);
+                        if (aspectRatio > 0) {
+                            state.crop.height = state.crop.width / aspectRatio;
+                            state.crop.y = startCrop.y + (startCrop.height - state.crop.height);
+                        } else {
+                            state.crop.height = Math.max(50, startCrop.height - dy);
+                            state.crop.y = startCrop.y + (startCrop.height - state.crop.height);
+                        }
+                        break;
+                    case 'nw':
+                        state.crop.width = Math.max(50, startCrop.width - dx);
+                        state.crop.x = startCrop.x + (startCrop.width - state.crop.width);
+                        if (aspectRatio > 0) {
+                            state.crop.height = state.crop.width / aspectRatio;
+                            state.crop.y = startCrop.y + (startCrop.height - state.crop.height);
+                        } else {
+                            state.crop.height = Math.max(50, startCrop.height - dy);
+                            state.crop.y = startCrop.y + (startCrop.height - state.crop.height);
+                        }
+                        break;
+                }
+            }
+            
+            updateCropFrame();
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            isResizing = false;
+            currentHandle = null;
+        });
+
+        function loadImage(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    state.originalImage = img;
+                    state.image = img;
+                    initEditor();
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
         }
+
+        function initEditor() {
+            uploadSection.classList.add('hidden');
+            editorSection.classList.remove('hidden');
+            
+            // Set canvas size to match image
+            canvas.width = state.image.width;
+            canvas.height = state.image.height;
+            
+            // Initialize crop to center
+            const container = document.getElementById('canvasContainer');
+            const containerRect = container.getBoundingClientRect();
+            const maxCropWidth = Math.min(400, state.image.width);
+            const maxCropHeight = Math.min(400, state.image.height);
+            
+            state.crop.width = maxCropWidth;
+            state.crop.height = maxCropWidth; // Default 1:1
+            state.crop.x = (containerRect.width - state.crop.width) / 2;
+            state.crop.y = (containerRect.height - state.crop.height) / 2;
+            state.crop.ratio = 1;
+            
+            updateCropFrame();
+            render();
+            updateImageInfo();
+            
+            // Activate first preset
+            document.querySelector('[data-preset="instagram-post"]').classList.add('active');
+        }
+
+        function render() {
+            if (!state.image) return;
+            
+            ctx.save();
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Calculate center
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            
+            // Apply transformations
+            ctx.translate(centerX, centerY);
+            ctx.rotate(state.transform.rotate * Math.PI / 180);
+            ctx.scale(state.transform.zoom / 100 * state.transform.flipH, state.transform.zoom / 100 * state.transform.flipV);
+            ctx.translate(-centerX, -centerY);
+            
+            // Draw image
+            ctx.drawImage(state.image, 0, 0);
+            
+            ctx.restore();
+        }
+
+        function updateCropFrame() {
+            cropFrame.style.left = state.crop.x + 'px';
+            cropFrame.style.top = state.crop.y + 'px';
+            cropFrame.style.width = state.crop.width + 'px';
+            cropFrame.style.height = state.crop.height + 'px';
+            cropDimensions.textContent = `${Math.round(state.crop.width)} x ${Math.round(state.crop.height)}`;
+            cropOverlay.classList.remove('hidden');
+        }
+
+        function setPreset(presetName) {
+            const preset = presets[presetName];
+            if (!preset) return;
+            
+            // Update active state
+            document.querySelectorAll('.social-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-preset="${presetName}"]`).classList.add('active');
+            
+            // Calculate crop size based on preset ratio
+            const container = document.getElementById('canvasContainer');
+            const containerRect = container.getBoundingClientRect();
+            
+            let width = Math.min(400, containerRect.width - 40);
+            let height = width / preset.ratio;
+            
+            if (height > containerRect.height - 40) {
+                height = containerRect.height - 40;
+                width = height * preset.ratio;
+            }
+            
+            state.crop.width = width;
+            state.crop.height = height;
+            state.crop.x = (containerRect.width - width) / 2;
+            state.crop.y = (containerRect.height - height) / 2;
+            state.crop.ratio = preset.ratio;
+            
+            updateCropFrame();
+        }
+
+        function setRatio(ratio) {
+            state.crop.ratio = ratio;
+            
+            const container = document.getElementById('canvasContainer');
+            const containerRect = container.getBoundingClientRect();
+            
+            let width = state.crop.width;
+            let height = ratio === 0 ? state.crop.height : width / ratio;
+            
+            if (height > containerRect.height - 40) {
+                height = containerRect.height - 40;
+                width = ratio === 0 ? state.crop.width : height * ratio;
+            }
+            
+            state.crop.width = width;
+            state.crop.height = height;
+            state.crop.x = (containerRect.width - width) / 2;
+            state.crop.y = (containerRect.height - height) / 2;
+            
+            updateCropFrame();
+            
+            // Clear active preset
+            document.querySelectorAll('.social-btn').forEach(btn => btn.classList.remove('active'));
+        }
+
+        function applyCustomSize() {
+            const width = parseInt(document.getElementById('customWidth').value);
+            const height = parseInt(document.getElementById('customHeight').value);
+            
+            if (!width || !height) {
+                alert('Masukkan width dan height yang valid');
+                return;
+            }
+            
+            const container = document.getElementById('canvasContainer');
+            const containerRect = container.getBoundingClientRect();
+            
+            // Scale down if too large
+            let displayWidth = width;
+            let displayHeight = height;
+            const maxWidth = containerRect.width - 40;
+            const maxHeight = containerRect.height - 40;
+            
+            if (displayWidth > maxWidth || displayHeight > maxHeight) {
+                const scale = Math.min(maxWidth / displayWidth, maxHeight / displayHeight);
+                displayWidth *= scale;
+                displayHeight *= scale;
+            }
+            
+            state.crop.width = displayWidth;
+            state.crop.height = displayHeight;
+            state.crop.x = (containerRect.width - displayWidth) / 2;
+            state.crop.y = (containerRect.height - displayHeight) / 2;
+            state.crop.ratio = width / height;
+            
+            updateCropFrame();
+            
+            // Clear active preset
+            document.querySelectorAll('.social-btn').forEach(btn => btn.classList.remove('active'));
+        }
+
+        function flipHorizontal() {
+            state.transform.flipH *= -1;
+            render();
+        }
+
+        function flipVertical() {
+            state.transform.flipV *= -1;
+            render();
+        }
+
+        function resetImage() {
+            state.transform = {
+                zoom: 100,
+                rotate: 0,
+                flipH: 1,
+                flipV: 1
+            };
+            document.getElementById('zoomSlider').value = 100;
+            document.getElementById('zoomValue').textContent = '100%';
+            document.getElementById('rotateSlider').value = 0;
+            document.getElementById('rotateValue').textContent = '0°';
+            render();
+            setPreset('instagram-post');
+        }
+
+        function downloadImage() {
+            if (!state.image) return;
+            
+            // Create temporary canvas for cropping
+            const tempCanvas = document.createElement('canvas');
+            const tempCtx = tempCanvas.getContext('2d');
+            
+            // Calculate actual crop coordinates relative to image
+            const scaleX = state.image.width / canvas.width;
+            const scaleY = state.image.height / canvas.height;
+            
+            // Get display scale
+            const displayScale = Math.min(
+                document.getElementById('canvasContainer').clientWidth / canvas.width,
+                600 / canvas.height
+            );
+            
+            const actualCropX = (state.crop.x - (document.getElementById('canvasContainer').clientWidth - canvas.width * displayScale) / 2) / displayScale;
+            const actualCropY = (state.crop.y - (600 - canvas.height * displayScale) / 2) / displayScale;
+            const actualCropWidth = state.crop.width / displayScale;
+            const actualCropHeight = state.crop.height / displayScale;
+            
+            // Set output size
+            tempCanvas.width = actualCropWidth;
+            tempCanvas.height = actualCropHeight;
+            
+            // Apply transformations
+            tempCtx.save();
+            tempCtx.translate(actualCropWidth / 2, actualCropHeight / 2);
+            tempCtx.rotate(state.transform.rotate * Math.PI / 180);
+            tempCtx.scale(state.transform.zoom / 100 * state.transform.flipH, state.transform.zoom / 100 * state.transform.flipV);
+            tempCtx.translate(-actualCropWidth / 2, -actualCropHeight / 2);
+            
+            // Draw cropped portion
+            tempCtx.drawImage(
+                canvas,
+                actualCropX, actualCropY, actualCropWidth, actualCropHeight,
+                0, 0, actualCropWidth, actualCropHeight
+            );
+            
+            tempCtx.restore();
+            
+            // Download
+            const link = document.createElement('a');
+            link.download = `edited-photo-${Date.now()}.png`;
+            link.href = tempCanvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function updateImageInfo() {
+            if (state.image) {
+                imageInfo.textContent = `${state.image.width} x ${state.image.height} px`;
+            }
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (state.image) {
+                updateCropFrame();
+            }
+        });
     </script>
 </body>
 </html>
